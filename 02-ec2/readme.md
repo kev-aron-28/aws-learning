@@ -185,3 +185,4 @@ EBS are attached to once instance at a time, except multi-attach io l/io2, they 
 TO migrate EBs volume across AZ you take a snapshot, restore the snapshot to another AZ
 
 EFS can be mounted up to 100s of instances across AZ, only for Linux instances, and has a higher price than EBS
+

@@ -130,3 +130,69 @@ With this each load balancer instance distributes evenly across all registered i
 - Now TLS are mainly used but people still refer as SSL
 
 The load balancer uses an X.509 certificate (SSL/TLS server certificate)
+
+
+SSL - Server name indication (SNI)
+
+- SNI solves the problem of loading multiple SSL certificates onto one web server (to server multiple websites)
+- ONly works for ALB and NLB
+
+## ELB - SSL certificates
+- Classic load balancer (v1)
+    - Support only one SSL certificate
+    - Must use mutiple CLB for multiple hostname with multiple SSL certificates
+- Application load balancer
+    - Supports multiple listeners with multiple SSL certificates
+    - Uses servername indication (SNI)
+- Network load balancer
+    - SUpports multiple listeners with multiple SSL certificates
+    - Uses SNI
+
+# Connection dranining
+
+- Time to complete "in-flight requests" while the instance is de-registering or unhealthy
+- Stops sending new requests to the EC2 instances
+
+# Auto scalling groups
+The of an Auto Scalling Group(ASG) is to:
+- Scale out(add new EC2 instances)
+- Scale in (remove EC2 instances)
+
+ASG are free (you only pay for the underlaying EC2 instances)
+
+You need a launch template 
+- AMI + instance type
+- EC2 user data
+- EBS volumes
+- Security groups
+- SSH key pair
+- IAM roles for you EC2 instances
+- Network + subnets info
+- Loadbalancer info
+
+It is possible to scale an ASG based on CloudWatch alarms and based on the alarm
+- We can create scale-out policies
+- We can create scale-in policies
+
+# Step by stemp
+
+1. Create A launch template
+2. Create the targe group
+3. Create the loadbalancer
+4. Create auto scaling group
+5. Attach ASC to target group
+
+# Scaling poliices
+- Target tracking scaling
+    - ASG CPU to stay at around 40%
+- Simple/ step scaling
+    - When a CloudWatch alarm is triggered, then add 2 units
+    - When a CloudWatch alarm is triggered them remove 1
+- Scheduled scaling
+    - Anticipate a scaling based on a known usage patters
+- Predictive scaling
+
+Metrics to scale on:
+- CPU utilization
+- RequestCountPerTarget
+- Average network in / out
