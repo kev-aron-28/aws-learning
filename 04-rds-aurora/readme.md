@@ -76,4 +76,14 @@ Advantages:
 - In memory databases with really high performance, low latency
 - Helps reduce load off of database for read intensive workloads
 - Aws takes care of OS maintenance / patching optimization, setup, configuration, monitoring failure recovery and backups 
-- 
+- Up to 5 Read Replicas
+
+# Elastic Cache stretegies
+
+- Cache-aside
+- Write-through
+
+# Amazon MemoryDB for redis
+- Redis compatible, durable, in memory database service
+- Ultra fast performance with over 160 millions requests/second
+- Multi-AZ
