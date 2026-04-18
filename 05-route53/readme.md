@@ -72,3 +72,67 @@ The target:
 - VPC interface endpoints
 - Global accelerator
 - You cannot set an ALIAS record for an EC2 dns name
+
+# Routing policies
+Define how route 53 responds to DNS queries
+- Its not the same as Load Balancer routing which routes the traffic
+- It only responds to to the DNS queries
+
+## Simple
+- Typically route traffic to a single resource
+- Can specify multiple values in the same record
+- If multiple values are returned a random on is chosen
+- When alias enabled, specify only one AWS resource
+- Cant be associated with Health checks
+
+## Weigthed
+- Control the % of the requests that go to each specific resource
+- DNS must have the same name and type
+- Load balancing between regions, testing new application versions
+- Can use Health checks
+
+## Latency based
+- Redirect to the resource that has the least latency close to use
+- Latency is based on traffic between users and AWS regions
+- Can be associated with health checks
+
+## Failover based
+Primary and secondary
+
+## Geolocation
+Different from latency based
+This routing is baed on user location,
+- Specify location by continent,country, or by us state
+- should create a default record
+- website locatization, retrict content distribution, loadbalancing
+- Can be associated with health checks
+
+## Geoproximity
+Route traffic to your resources based on the geographic location of users and resorces
+Ability to shift more traffic to resources based on the defined bias
+To change the size of the geographic region, specify bias values
+
+## IP based
+Routign based on clients IP addresses, provide a list of CIDRs for your clients and the corresponding endpoints/locations
+Optimize performance, reduce network costs
+
+## Multi-value
+Use when routing traffic to multiple resources
+Can be associated with Health checks
+up to 8 health records are returned 
+
+# Health checks
+HTTP health checks are only for public resources
+
+
+For private hosted zones:
+- Route 53 health checkets are outside the VPC
+- They cant access private endpoints
+- You can create a CloudWatch metric and associate a CloudWatch alarm, then create a Health check that checks the alarm itself
+
+1. Monitor and enpoint
+2. monitor another health checks
+
+# Domain registar vs DNS service
+You buy your domain name with a domain registar typically by paying annual charges
+The domain registar provides you with a DNS service to manage your DNS records, but you can use another DNS service to manage your DNS records
