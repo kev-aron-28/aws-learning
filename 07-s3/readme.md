@@ -53,3 +53,24 @@ it is enabled at bucket level
 - Cross-Region
 - Same region
 - You can replicate existing objects using S3 batch replication
+
+# S3 storage classes
+- S3 standard, general purpose
+- S3 standard-infrequent access
+- S3 One zone-infrequent access
+- S3 glacier Instant retrieveal
+    - Flexible retrieval
+- Glacier deep archive
+- Intelligent tiering
+
+
+----
+
+# Advanced
+
+Lifecycle rules
+- Transition actions: configure objects to transition to another storage class
+- Expiration actions
+- 
+
+## S3 event notifications
