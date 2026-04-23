@@ -44,3 +44,12 @@ JSON based policies
     -Grant public access to the bucket
     - Force objets to be encrypted at upload
     - Grant access to another account
+
+# S3 versioning
+it is enabled at bucket level
+
+# S3 replication
+- We must enable versioning in source and destination buckets
+- Cross-Region
+- Same region
+- You can replicate existing objects using S3 batch replication
