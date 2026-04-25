@@ -63,7 +63,6 @@ it is enabled at bucket level
 - Glacier deep archive
 - Intelligent tiering
 
-
 ----
 
 # Advanced
@@ -71,6 +70,40 @@ it is enabled at bucket level
 Lifecycle rules
 - Transition actions: configure objects to transition to another storage class
 - Expiration actions
-- 
 
-## S3 event notifications
+## S3 performance
+Automatically scales to high request rates, latency 
+There are no limits to number of prefixes in a bucket, you can achieve at least 3500 put/copy/post/delete or 5,500 get/head
+
+1. Multi-part upload
+2. S3 transfer acceleration
+3. Byte range fetches
+    - Parallelize GET 
+
+
+## User defined metadata
+    - Whan uploading an object, you can also assign metadata
+    - name-value (key-value) pairs
+    - User defined metadata names must begin with "x-amz-meta"
+    - it is stored in lowercase
+## S3 object tags
+    - Key value for objects in AMAZON s3
+    - Useful for fine-grained permissions
+    - Analytics purposes
+
+You cannot search object metadata or object tags, instead you must use an external DB as a search index
+
+# S3 encryption
+1. Server side encryption
+Encryption using keys handled managed by AWS, object is encrypted server-side, AES-256 must set header "x-amz-server-side-encryption:"
+if using KMS, you have user control + audit key usage using CloudTrail
+2. Client side encryption
+
+
+# Encryption in flight
+SSL/TLS
+Amazon exposes two endpoints: HTTP and HTTPS
+
+# S3 CORS
+Cross origin resource sharing
+You can allow for specific origin or for * (all origins)
