@@ -107,3 +107,25 @@ Amazon exposes two endpoints: HTTP and HTTPS
 # S3 CORS
 Cross origin resource sharing
 You can allow for specific origin or for * (all origins)
+
+# MFA delete
+Forces users to generate a code on a device before doing important operations on S3
+Versioning must be enabled
+
+# S3 acces logs 
+- For audit purpose
+- Any request made to S3 from any account authorized or denied, will be logged into another S3 bucket
+
+# Pre signed urls
+Generate pre signed URls using the S3 console, aws CLi or SDK
+- 1 minute up to 720min(12 hours)
+- AWS CLI, configure explication with  expires in parameter in seconds
+
+# Access points
+Access points simplify security managment for S3 buckets
+- its own DNS name 
+- 
+
+# S3 object lambda
+- Use aws lambda function to change the object before its retrieve by the caller
+- Only one S3 bucket is needed
