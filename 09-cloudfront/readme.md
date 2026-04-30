@@ -55,3 +55,45 @@ Deliver traffic to private:
 - Application load balancer
 - Network load balancer
 - EC2 instances
+
+# Signed urls / signed cookies
+You want to distribute shared content to premium users over the world
+
+we attach a policy with:
+- Incldues URL expiration
+- Includes IP ranges to access the data from
+- Trusted signers
+
+Signed url = access to individual files 
+Signed cookies = access to multiple files
+
+# CloudFront signed url:
+- Allow access a to a path, no matter
+- Account wide key-pair
+- Can filter by IP
+- Can leverage caching features
+
+# S3 pre-signed url
+- Issue a request as the person who pre-signed the URL
+- Uses IAM key of the signing IAM principal
+
+# CloudFront signed URL process
+
+- Two types of signers
+    - Either a trusted key group
+    - Can leverage APIs to create and rotate keys
+
+- In cloudfront create one or more trusted key groups
+
+
+# CloudFront pricing
+The cost of data out per edge locatio varies
+
+You can reduce the number of edge locations for cost reduction
+Three price classes:
+1. Price class All: all regions
+2. Prce class 200: most regions
+3. Price class 100: cheaper regions
+
+# Real time logs
+Get real time requests received by cloudfront sent to kinesis data streams

@@ -76,7 +76,9 @@ Advantages:
 - In memory databases with really high performance, low latency
 - Helps reduce load off of database for read intensive workloads
 - Aws takes care of OS maintenance / patching optimization, setup, configuration, monitoring failure recovery and backups 
-- Up to 5 Read Replicas
+- Up to 5 Re
+
+ad Replicas
 
 # Elastic Cache stretegies
 
