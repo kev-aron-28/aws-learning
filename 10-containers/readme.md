@@ -43,3 +43,56 @@ It uses ECS, AWS application Auto Scaling
 ## Launch type
 - Auto scaling group
 - Cluster capacity provider
+
+## Rolling updates
+We can control how many tasks can be started and stopped and in which order
+
+# Task definitions
+Task definitions are metadata in JSON form to tell ECs how to run a docker container
+
+## Load balancing in EC2 lauch type
+We get a Dynamic Host port mapping if you define only the container pot in the task definition
+
+## Load balancing in Fargate
+Each task has a unique private IP
+- Only define the container port
+
+## Environment variables
+- Harcoded
+- SSM parameter store
+- Secrets manager
+
+## Data volumes 
+Share data between multiple containers in the same Task definition
+- Works for both EC2 and fargate
+
+# Task placement process
+
+1. Identify the instances that satisfy the CPU memor and port requirements in the task definition
+2. Identify the instances that satisfy the task placement constraints
+
+## Strategies
+- Binpack: Place task based on the least available amount of CPU or memory This minimizes the number of instances in use\
+- Random
+- Spread
+
+# Amazon ECR
+Elastic Container Registry
+
+# Copilot
+CLI to build, release and operate production ready containerized apps
+
+# Amazon EKS
+Amazon Elastic Kubernetes Service, Its a way to launch managed Kubernetes clusters on AWS
+Kuberentes is an open-source system for automatic deployemtn
+Its an alternative to ECS, similar goal but different APi
+
+## NOde types
+- Managed Node Groups
+- Self-managed nodes
+- AWS fargate
+
+
+## Data volumes 
+NEed to specify StorageClass manifest on your EKS cluster
+Leverages a Container Storage Interface compliant driver
