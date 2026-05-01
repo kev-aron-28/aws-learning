@@ -38,7 +38,26 @@ terraform {
 - terraform show
 - terraform state list
 - terraform apply -destroy
+- terraform init -backend-config="path to file"
 
 # Terraform state
 Maps resources from teh configuraiton to real-world objects
 - Sensitive data
+
+
+# Backends
+Define where Terraform stores its state file
+
+- Local
+- Terraform cloud
+- Third-party remote backends
+
+DIffernt backedns can offer different functionalities
+
+The backend cannot use any inputs variables
+
+When changes are made to the configured backend we must rerun the terraform init
+
+
+# Providers
+Terraform interacts with remote APIs and platforms

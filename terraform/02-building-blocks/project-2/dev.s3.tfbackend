@@ -1,0 +1,3 @@
+bucket = "terraform-course-remote-backend-kevin"
+key="states/state.tfstate"
+region="us-east-1"
