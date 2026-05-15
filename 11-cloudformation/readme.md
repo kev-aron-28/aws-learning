@@ -54,3 +54,12 @@ COnditions are used to control the creation of resources or outputs based on a c
 - Fn::ForEach
 - Fn::ToJsonString
 - Condition functions
+
+# Rollbacks
+Stack creation fails:
+- Default: Everything rolls back (gets deleted). We can look at the log
+
+Stack update fails:
+- Stack automatically rollsback to the previous known working state
+
+Rollback failure? Fix resources manually then issue ContinueUpdateRollback API
