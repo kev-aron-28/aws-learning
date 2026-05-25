@@ -10,6 +10,20 @@ terraform {
 }
 
 
+locals {
+  project_owner = "terraform-course"
+  cost_center   = "1234"
+  managed_by    = "Terraform"
+}
+
+locals {
+  common_tags = {
+    owner       = local.project_owner
+    cost_center = local.cost_center
+    managed_by  = local.managed_by
+  }
+}
+
 data "aws_ami" "ubuntu" {
   most_recent = true
   owners      = ["099720109477"]
@@ -30,6 +44,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
+
 resource "aws_instance" "compute" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.ec2_instance_type
@@ -40,8 +55,6 @@ resource "aws_instance" "compute" {
     volume_type           = var.ec2_volume_config.type
   }
 
-  tags = merge(var.additional_tags, {
-    ManagedBy = "Terraform"
-  })
+  tags = merge(var.additional_tags, locals.common_tags)
 }
 

@@ -11,3 +11,11 @@ To provide values:
 - terraform.tfvars
 - terraform.tfvars.json
 - command line -var and --var file
+
+1. TF_VAR
+2. terraform.tfvars
+3. prod.auto.tfvars
+4. var and -var-file cli 
+
+# Locals
+

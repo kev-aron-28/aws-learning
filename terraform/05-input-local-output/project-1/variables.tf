@@ -1,8 +1,8 @@
 variable "ec2_instance_type" {
-  type    = string
+  type = string
 
   validation {
-    condition     = var.ec2_instance_size == "t2.micro" || var.ec2_instance_size == "t3.micro"
+    condition     = var.ec2_instance_type == "t2.micro" || var.ec2_instance_type == "t3.micro"
     error_message = "only t2.micro and t3.micro"
   }
 }
@@ -28,6 +28,6 @@ variable "ec2_volume_config" {
 }
 
 variable "additional_tags" {
-  type = map(string)
+  type    = map(string)
   default = {}
 }
