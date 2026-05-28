@@ -52,3 +52,66 @@ Message size limit is 1024 KB, with this you can send larger mesages
 # FIFO queue
 First In First Out ordering of messages in the queue
 Limited throughput: 300 msg/s without batching and 3000 msg with
+Exactly-once send capability
+- Ordering by message group id
+
+## Deduplication
+- Deduplication interval is 5 minutes
+- Content based
+- Explicitly provide a message deduplication id
+
+## Grouping
+If you specify the same value of MessageGroupId in a SQS FIFO queue, you can only have one consumer
+- To get ordering at the level of a subset of messages, specify different values for MessageGroupID
+- Message that share a common Message Group ID will be in order within the group
+- Each group id can have different consumer
+
+
+# Amazon SNS
+What if you cant to send one message to many receivers?
+- The event producer only sends message to one SNS topic
+- as many event receivers as we want to listen to the SNS topic notifications
+- Each subscriber to the topic will get all the messages
+
+## Fanaout pattern
+- Push once in SNS, receive all SQS queues that are subscribers
+- Fully decoupled, no data loss
+- SQS Allows for: data persistence, delayed processing and retries of work
+
+# Amazon Kinesis Data Streams
+Collect and store streaming data in real-time
+
+- Provisioned mode:
+    - Chose numbers of shards
+    - Each shard gets 1 MB/s
+- On demadn mode:
+    - Scale automatically based on observed througput
+
+# Amazon Data firehouse
+Used to be called "Kinesis data firehose"
+- FUlly managed service
+- Automatic scaling serverles pay for what you use
+- Near real time
+
+
+# SQS vs SNS vs Kinesis
+SQS:
+- Consumer pull data
+- Data is deleted after being consumed
+- Can have as many consumers as we want
+- No need to provision 
+- 10 max simust
+
+SNS:
+- Push data to many subscribers, all receive a copy
+- Data is not persisted
+- Pub/Sub
+
+Kinesis:
+- Standard: pull data from shard
+- Enhaced fan out: push data
+- Possiblity to replay data
+- Meant for real-time big data analytics and ETL
+- Ordering at shard level
+- Max 10 EC2
+- max of 365 days
