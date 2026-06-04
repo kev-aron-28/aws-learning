@@ -62,9 +62,38 @@ Logs can use filter expressions
 
 ## How to enable
 - Your code SDK
-- s
+- X-ray daemon or enable X-ray integration
+
+
+## Concepts
+- Segments: Each application / service will send them
+- Subgments: If you need more details in your segment
+- Trace: segments collected together to form an end-to-end trace
+- Sampling: Decrease the amount of requests sent to X-ray, reduce cost
+- Annotations: Key value pairs used to index traces and use with filters
+
+## Sampling rules
+- With sampling rules, you control the amount of data that you record
+- You can modify them without chaging your code
+
+## Apis
+- Write APIs
+- Read APIs
+
+# OpenTelemetry
+- Secure, production ready aws supported distribution of the open source project
+- Provides a single set of APIs, libraries, agents and collector services
+
 
 # CloudTrail
 - Internal monitoring of API calss being made
 - Audit changes to AWS resources by your users
+- Get an history of events / API calls made within your AWS accounts
 
+## CloudTrail insights
+- Enable CloudTrail insights to detect unusual patterns activity in your account
+
+## Event retetion
+- Events are stored for 90 days in CloudTrail
+
+## EventBridge
