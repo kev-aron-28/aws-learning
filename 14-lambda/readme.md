@@ -200,7 +200,6 @@ Dedicated HTTPS endpoint for your lambda function
 - Supported for Java and Python runtimes
 - Activate from AWS Lambda console
 
-
 # Lambda limits
 - Memory: 128MB - 10GB
 - Maximum execution time: 900 seconds (15 minutes)
